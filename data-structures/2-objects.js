@@ -11,3 +11,10 @@ console.log(obj.name);
 console.log(obj['age']);
 obj.sayPresent();
 obj.sayAbsent();
+var car = {
+    model: 'Tesla',
+    year: 2020,
+    isElectric: true,
+    price: 100000,
+};
+console.log(Object.values(car));
