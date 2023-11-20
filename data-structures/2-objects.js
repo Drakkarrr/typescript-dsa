@@ -17,4 +17,5 @@ var car = {
     isElectric: true,
     price: 100000,
 };
-console.log(Object.values(car));
+console.log(Object.keys(car));
+// console.log(Object.values(car));
