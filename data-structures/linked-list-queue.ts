@@ -1,32 +1,34 @@
 import LinkedList from './linked-list-tail';
 
 class LinkedListQueue {
+  private list: LinkedList;
+
   constructor() {
     this.list = new LinkedList();
   }
 
-  enqueue(value) {
+  enqueue(value: any): void {
     this.list.append(value);
   }
 
-  dequeue() {
+  dequeue(): any {
     return this.list.removeFromFront();
   }
 
-  peek() {
-    return this.list.head.value;
+  peek(): any {
+    return this.list.head?.value;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.list.isEmpty();
   }
 
-  getSize() {
+  getSize(): number {
     return this.list.getSize();
   }
 
-  print() {
-    return this.list.print();
+  print(): void {
+    this.list.print();
   }
 }
 
