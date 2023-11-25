@@ -1,26 +1,33 @@
 class Node {
-  constructor(value) {
+  value: any;
+  next: Node | null;
+
+  constructor(value: any) {
     this.value = value;
     this.next = null;
   }
 }
 
 class LinkedList {
+  head: Node | null;
+  tail: Node | null;
+  size: number;
+
   constructor() {
     this.head = null;
     this.tail = null;
     this.size = 0;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.size === 0;
   }
 
-  getSize() {
+  getSize(): number {
     return this.size;
   }
 
-  prepend(value) {
+  prepend(value: any): void {
     const node = new Node(value);
     if (this.isEmpty()) {
       this.head = node;
@@ -32,49 +39,49 @@ class LinkedList {
     this.size++;
   }
 
-  append(value) {
+  append(value: any): void {
     const node = new Node(value);
     if (this.isEmpty()) {
       this.head = node;
       this.tail = node;
     } else {
-      this.tail.next = node;
+      this.tail!.next = node;
       this.tail = node;
     }
     this.size++;
   }
 
-  removeFromFront() {
+  removeFromFront(): any | null {
     if (this.isEmpty()) {
       return null;
     }
-    const value = this.head.value;
-    this.head = this.head.next;
+    const value = this.head!.value;
+    this.head = this.head!.next;
     this.size--;
     return value;
   }
 
-  removeFromEnd() {
+  removeFromEnd(): any | null {
     if (this.isEmpty()) {
       return null;
     }
-    const value = this.tail.value;
+    const value = this.tail!.value;
     if (this.size === 1) {
       this.head = null;
       this.tail = null;
     } else {
       let prev = this.head;
-      while (prev.next !== this.tail) {
-        prev = prev.next;
+      while (prev!.next !== this.tail) {
+        prev = prev!.next;
       }
-      prev.next = null;
+      prev!.next = null;
       this.tail = prev;
     }
     this.size--;
     return value;
   }
 
-  reverse() {
+  reverse(): void {
     let current = this.head;
     let prev = null;
     let next = null;
@@ -88,7 +95,7 @@ class LinkedList {
     this.head = prev;
   }
 
-  print() {
+  print(): void {
     if (this.isEmpty()) {
       console.log('List is empty');
     } else {
