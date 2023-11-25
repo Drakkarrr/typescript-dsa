@@ -1,32 +1,34 @@
 import LinkedList from './linked-list-tail';
 
 class LinkedListStack {
+  private list: LinkedList;
+
   constructor() {
     this.list = new LinkedList();
   }
 
-  push(value) {
+  push(value: any): void {
     this.list.prepend(value);
   }
 
-  pop() {
+  pop(): any {
     return this.list.removeFromFront();
   }
 
-  peek() {
-    return this.list.head.value;
+  peek(): any {
+    return this.list.head?.value;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.list.isEmpty();
   }
 
-  getSize() {
+  getSize(): number {
     return this.list.getSize();
   }
 
-  print() {
-    return this.list.print();
+  print(): void {
+    this.list.print();
   }
 }
 
