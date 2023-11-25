@@ -1,15 +1,15 @@
 import LinkedList from './linked-list-tail';
 
-class LinkedListQueue {
+class LinkedListStack {
   constructor() {
     this.list = new LinkedList();
   }
 
-  enqueue(value) {
-    this.list.append(value);
+  push(value) {
+    this.list.prepend(value);
   }
 
-  dequeue() {
+  pop() {
     return this.list.removeFromFront();
   }
 
@@ -30,13 +30,13 @@ class LinkedListQueue {
   }
 }
 
-const queue = new LinkedListQueue();
-console.log(queue.isEmpty());
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-console.log(queue.getSize());
-queue.print();
-console.log(queue.dequeue());
-queue.print();
-console.log(queue.peek());
+const stack = new LinkedListStack();
+console.log(stack.isEmpty());
+stack.push(20);
+stack.push(10);
+stack.push(30);
+console.log(stack.getSize());
+stack.print();
+console.log(stack.pop());
+stack.print();
+console.log(stack.peek());
